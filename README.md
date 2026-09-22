@@ -58,6 +58,7 @@ Keywords or handles in, a finished influencer lead list with contact details out
 | `mode` | string | no | Leave empty for the default. sub_actors calls the Influencer Finder, the Influencer Profile Scraper, and the Link in Bio Scraper and Newsletter Detector by Actor ID as runs on your account, so each stage bills its. |
 | `twitch_client_id` | string | no | Optional. Your own registered Twitch application client id. With `twitch_app_token` the Twitch reads use the official Helix API instead of the public web endpoint. Never a Mamba Labs credential. |
 | `twitch_app_token` | string | no | Optional. An app access token for your Twitch client id (client credentials flow). Used only for Twitch reads, never stored or logged. |
+| `contribute_to_shared_pool` | boolean | no | On by default. Contributes the public records this run finds to a shared creator and agency pool that all users of this actor read from. Only public data already in the returned rows is sent, and a contribution is not charged. Set false to read the pool and write nothing. Default `true`. |
 
 Nothing is required. Influencer Lead List Builder answers a run with no usable input with a row carrying `row_status` and `error_reason` rather than failing, and the tool mirrors that.
 
@@ -79,6 +80,20 @@ Influencer Lead List Builder is pay per event on Apify. Every price below is fla
 ## Reading the output
 
 Every row carries `row_status` and `error_reason`. A creator the actor could not read comes back as a row saying why, not as a gap in the list, so an absence is readable rather than inferred. Filter on `row_status` before loading a table.
+
+## What this actor shares
+
+The run contributes the records it finds to a shared creator and agency pool that all users of this actor read from. What one run finds, the next run can read.
+
+The toggle is `contribute_to_shared_pool`. It is on by default. Set it to false and the run still reads the pool and writes nothing to it.
+
+**What this actor contributes.** One contribution per run, covering what the three stages produced together: the creators found, the profiles read, the manager contacts, and the matched agencies. Not one contribution per stage.
+
+**Only public data that is already in your own output.** Every field written to the pool is a field this run returned to you, read from a page the platform or the creator publishes to anyone without a login. Nothing from your Apify account, your input list, your API keys, or your own notes is sent. A contribution never deletes anything from the pool.
+
+**What a contribution is labeled with.** The actor ID, the run ID, the pool key issued to the actor build, and a hash of the calling IP address, used for the rate limit and nothing else. Your Apify account and your user ID are not recorded.
+
+**Contributing is free.** No event is charged for a write to the pool. If the pool is unreachable the run finishes as normal, the rows are dropped, and the run log says so.
 
 ## Actor
 
