@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.mambabuilt/mcp-creator-lead-list-all-in-one",
   "description": "Keywords or handles in, a finished influencer lead list with contact details out.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "url": "https://github.com/mambalabsdev/mcp-creator-lead-list-all-in-one",
     "source": "github"
@@ -11,7 +11,7 @@
     {
       "registryType": "npm",
       "identifier": "@mambalabsdev/mcp-creator-lead-list-all-in-one",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "transport": {
         "type": "stdio"
       },

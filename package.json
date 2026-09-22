@@ -1,7 +1,7 @@
 {
   "name": "@mambalabsdev/mcp-creator-lead-list-all-in-one",
   "displayName": "Influencer Lead List Builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for the Mamba Labs Influencer Lead List Builder actor on Apify. Discovery, the profile read, and the link check in one run, on one flat row per creator.",
   "type": "module",
   "bin": {
