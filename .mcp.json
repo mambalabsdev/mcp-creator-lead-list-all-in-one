@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "mamba-creator-lead-list-all-in-one": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mambalabsdev/mcp-creator-lead-list-all-in-one"
+      ],
+      "env": {
+        "APIFY_TOKEN": "your-apify-token"
+      }
+    }
+  }
+}

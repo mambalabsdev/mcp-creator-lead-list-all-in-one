@@ -1,0 +1,63 @@
+{
+  "name": "@mambalabsdev/mcp-creator-lead-list-all-in-one",
+  "displayName": "Influencer Lead List Builder",
+  "version": "1.0.0",
+  "description": "MCP server for the Mamba Labs Influencer Lead List Builder actor on Apify. Discovery, the profile read, and the link check in one run, on one flat row per creator.",
+  "type": "module",
+  "bin": {
+    "mcp-creator-lead-list-all-in-one": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "test": "npm run build && node --test test/*.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "influencer-marketing",
+    "lead-generation",
+    "creator-economy",
+    "apify",
+    "clay"
+  ],
+  "tags": [
+    "mcp",
+    "influencer-marketing",
+    "lead-generation",
+    "creator-economy",
+    "apify",
+    "clay"
+  ],
+  "category": "productivity",
+  "author": {
+    "name": "Mamba Labs",
+    "email": "labs@mambamindsetgrowth.com"
+  },
+  "license": "MIT",
+  "logo": "https://mmg-brand-assets.netlify.app/apify-actor-pngs/apify_webhook.png",
+  "homepage": "https://mambabuilt.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mambalabsdev/mcp-creator-lead-list-all-in-one"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "typescript": "5.9.3"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "mcpServers": ".mcp.json",
+  "mcpName": "com.mambabuilt/mcp-creator-lead-list-all-in-one"
+}

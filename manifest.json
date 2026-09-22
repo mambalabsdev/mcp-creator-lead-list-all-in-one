@@ -1,0 +1,37 @@
+{
+  "manifest_version": "0.3",
+  "name": "mcp-creator-lead-list-all-in-one",
+  "version": "1.0.0",
+  "description": "MCP server for the Mamba Labs Influencer Lead List Builder actor on Apify. Discovery, the profile read, and the link check in one run, on one flat row per creator.",
+  "author": {
+    "name": "Mamba Labs"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/mambalabsdev/mcp-creator-lead-list-all-in-one",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mambalabsdev/mcp-creator-lead-list-all-in-one"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "build/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/build/index.js"
+      ],
+      "env": {
+        "APIFY_TOKEN": "${user_config.apify_token}"
+      }
+    }
+  },
+  "user_config": {
+    "apify_token": {
+      "type": "string",
+      "title": "Apify API Token",
+      "description": "Apify API token for running the actor",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}
