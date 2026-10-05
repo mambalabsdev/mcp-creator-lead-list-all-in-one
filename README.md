@@ -40,7 +40,7 @@ Keywords or handles in, a finished influencer lead list with contact details out
 | `niche` | string | no | Loads a curated set of search keywords for the niche (about 60 per niche, measured in the September 2026 pre-research). `max_keywords_per_niche` caps how many are used. Leave as custom to search only your keywords. Default `"custom"`. |
 | `max_keywords_per_niche` | integer | no | How many keywords from the niche set to search. 1 to 60. Default `10`. |
 | `handles` | array | no | One per line. A profile URL on any supported platform (https://www.tiktok.com/@name, https://www.instagram.com/name/, https://www.youtube.com/@name, a Pinterest, Twitch, or Threads profile, an Apple Podcasts show. |
-| `platforms` | array | no | Which platforms to search, and which platforms a bare @handle is looked up on. A full profile URL carries its own platform and ignores this. Supported: TikTok, Instagram, YouTube, Pinterest, Twitch, Threads, and. |
+| `platforms` | array | no | Which platforms to search, and which platforms a bare @handle is looked up on. A full profile URL carries its own platform and ignores this. Supported: TikTok, Instagram, YouTube, Pinterest, Twitch, Threads, and podcasts. |
 | `max_creators_per_keyword` | integer | no | Cap per search. Search engines honor the site: filter for the first page or two only, so 20 to 30 per keyword with more keywords beats deep paging. Default `20`. |
 | `max_creators` | integer | no | Hard cap on rows returned, so a broad niche cannot run away. Default `200`. |
 | `follower_min` | integer | no | Drop creators whose follower count is known and below this. A creator whose count the search did not show is kept, so a later profile read can fill it. Default `5000`. |
@@ -64,11 +64,12 @@ Nothing is required. Influencer Lead List Builder answers a run with no usable i
 
 ## Pricing
 
-Influencer Lead List Builder is pay per event on Apify. Every price below is flat across the FREE, BRONZE, SILVER, and GOLD tiers.
+Influencer Lead List Builder is pay per event on Apify. Every price below is flat across every tier: FREE, BRONZE, SILVER, GOLD, PLATINUM, and DIAMOND.
 
 | Event | Charged for | Price | Fires when |
 | --- | --- | ---: | --- |
 | `actor-start` | Actor start | $0.002 | Once per run, on start. Covers the run overhead. |
+| `apify-actor-start` | Apify actor start | not charged | Apify's synthetic start event. This actor prices its own `actor-start` event instead, so `apify-actor-start` is not charged on top of it. |
 | `creator-found` | Creator found | $0.007 | Once per creator row returned by keyword or niche discovery with a handle and a profile URL. A search that returns nothing charges nothing. |
 | `profile-read` | Profile read | $0.006 | Once per profile row where the public profile page was read and at least the follower count or the bio came back. A private, missing, or blocked profile returns a labeled error row and does not charge. |
 | `links-checked` | Links checked | $0.008 | Once per creator whose bio link or link-in-bio page was fetched and classified. A creator with no bio link returns newsletter_status none from the bio alone and does not charge this event. |
@@ -108,5 +109,6 @@ Actor ID `KnmByszcv135yM30G`. The wrapper calls the actor by that immutable ID r
 | [Link in Bio Scraper and Newsletter Detector](https://apify.com/mambalabs/link-in-bio-newsletter-checker) | `OorucdheTIgu7RFzK` | [`@mambalabsdev/mcp-link-in-bio-newsletter-checker`](https://www.npmjs.com/package/@mambalabsdev/mcp-link-in-bio-newsletter-checker) |
 | [Influencer Change Monitor](https://apify.com/mambalabs/creator-change-monitor) | `d2VVgahNL6UmcLkhg` | [`@mambalabsdev/mcp-creator-change-monitor`](https://www.npmjs.com/package/@mambalabsdev/mcp-creator-change-monitor) |
 | [Influencer Lead List Builder](https://apify.com/mambalabs/creator-lead-list-all-in-one) | `KnmByszcv135yM30G` | [`@mambalabsdev/mcp-creator-lead-list-all-in-one`](https://www.npmjs.com/package/@mambalabsdev/mcp-creator-lead-list-all-in-one) |
+| [Influencer Talent Agency Lookup](https://apify.com/mambalabs/talent-agency-lookup) | `zCuX4Mgyg6JvXgGzd` | [`@mambalabsdev/mcp-talent-agency-lookup`](https://www.npmjs.com/package/@mambalabsdev/mcp-talent-agency-lookup) |
 
 Built by [Mamba Labs](https://mambabuilt.com).
