@@ -59,6 +59,7 @@ Keywords or handles in, a finished influencer lead list with contact details out
 | `twitch_client_id` | string | no | Optional. Your own registered Twitch application client id. With `twitch_app_token` the Twitch reads use the official Helix API instead of the public web endpoint. Never a Mamba Labs credential. |
 | `twitch_app_token` | string | no | Optional. An app access token for your Twitch client id (client credentials flow). Used only for Twitch reads, never stored or logged. |
 | `contribute_to_shared_pool` | boolean | no | On by default. Contributes the public records this run finds to a shared creator and agency pool that all users of this actor read from. Only public data already in the returned rows is sent, and a contribution is not charged. Set false to read the pool and write nothing. Default `true`. |
+| `max_charge_usd` | number | no | Optional cost cap in USD for this run. The actor stops before an item that could take its charges past this amount. Omit to rely on the maximum cost per run set in Apify. |
 
 Nothing is required. Influencer Lead List Builder answers a run with no usable input with a row carrying `row_status` and `error_reason` rather than failing, and the tool mirrors that.
 
